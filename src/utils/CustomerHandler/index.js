@@ -4,7 +4,7 @@ import swal from 'sweetalert';
 const getCustomers = async () => {
     const response = await axios.get('https://mitramas-test.herokuapp.com/customers', {
       headers: {
-        'Authorization': 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9taXRyYW1hcy10ZXN0Lmhlcm9rdWFwcC5jb21cL2F1dGhcL2xvZ2luIiwiaWF0IjoxNjU3MjIzMzU5LCJleHAiOjE2NTcyMjY5NTksIm5iZiI6MTY1NzIyMzM1OSwianRpIjoiY1Z3M1E0ZHFLVElTb2l1NyIsInN1YiI6MTU0LCJwcnYiOiIyM2JkNWM4OTQ5ZjYwMGFkYjM5ZTcwMWM0MDA4NzJkYjdhNTk3NmY3In0.8NcBV1_gFWXubkculWHuCq9wAeir4wwHvf4nTo7Rk4A',
+        'Authorization': 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9taXRyYW1hcy10ZXN0Lmhlcm9rdWFwcC5jb21cL2F1dGhcL2xvZ2luIiwiaWF0IjoxNjU3MjUwNjQyLCJleHAiOjE2NTcyNTQyNDIsIm5iZiI6MTY1NzI1MDY0MiwianRpIjoiOVU2WEUyQ0ZHTDR2ZmgxdyIsInN1YiI6MTU0LCJwcnYiOiIyM2JkNWM4OTQ5ZjYwMGFkYjM5ZTcwMWM0MDA4NzJkYjdhNTk3NmY3In0.LwhcMEKoXPRrYShfc51uUpgggWiR_K-aB9Ht5gufa8I',
       }
     });
 
@@ -30,7 +30,7 @@ const createCustomers = (dataCustomer) => {
         formData.append('status', customerStatus);
     axios.post('https://mitramas-test.herokuapp.com/customers', formData, {
         headers: {
-            'Authorization': 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9taXRyYW1hcy10ZXN0Lmhlcm9rdWFwcC5jb21cL2F1dGhcL2xvZ2luIiwiaWF0IjoxNjU3MjIzMzU5LCJleHAiOjE2NTcyMjY5NTksIm5iZiI6MTY1NzIyMzM1OSwianRpIjoiY1Z3M1E0ZHFLVElTb2l1NyIsInN1YiI6MTU0LCJwcnYiOiIyM2JkNWM4OTQ5ZjYwMGFkYjM5ZTcwMWM0MDA4NzJkYjdhNTk3NmY3In0.8NcBV1_gFWXubkculWHuCq9wAeir4wwHvf4nTo7Rk4A',
+            'Authorization': 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9taXRyYW1hcy10ZXN0Lmhlcm9rdWFwcC5jb21cL2F1dGhcL2xvZ2luIiwiaWF0IjoxNjU3MjUwNjQyLCJleHAiOjE2NTcyNTQyNDIsIm5iZiI6MTY1NzI1MDY0MiwianRpIjoiOVU2WEUyQ0ZHTDR2ZmgxdyIsInN1YiI6MTU0LCJwcnYiOiIyM2JkNWM4OTQ5ZjYwMGFkYjM5ZTcwMWM0MDA4NzJkYjdhNTk3NmY3In0.LwhcMEKoXPRrYShfc51uUpgggWiR_K-aB9Ht5gufa8I',
         }
     })
         .then(response => {
@@ -101,7 +101,7 @@ const updateCustomers = (dataCustomer, id) => {
 
     axios.put('https://mitramas-test.herokuapp.com/customers', data, {
         headers: {
-            'Authorization': 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9taXRyYW1hcy10ZXN0Lmhlcm9rdWFwcC5jb21cL2F1dGhcL2xvZ2luIiwiaWF0IjoxNjU3MjIzMzU5LCJleHAiOjE2NTcyMjY5NTksIm5iZiI6MTY1NzIyMzM1OSwianRpIjoiY1Z3M1E0ZHFLVElTb2l1NyIsInN1YiI6MTU0LCJwcnYiOiIyM2JkNWM4OTQ5ZjYwMGFkYjM5ZTcwMWM0MDA4NzJkYjdhNTk3NmY3In0.8NcBV1_gFWXubkculWHuCq9wAeir4wwHvf4nTo7Rk4A',
+            'Authorization': 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9taXRyYW1hcy10ZXN0Lmhlcm9rdWFwcC5jb21cL2F1dGhcL2xvZ2luIiwiaWF0IjoxNjU3MjUwNjQyLCJleHAiOjE2NTcyNTQyNDIsIm5iZiI6MTY1NzI1MDY0MiwianRpIjoiOVU2WEUyQ0ZHTDR2ZmgxdyIsInN1YiI6MTU0LCJwcnYiOiIyM2JkNWM4OTQ5ZjYwMGFkYjM5ZTcwMWM0MDA4NzJkYjdhNTk3NmY3In0.LwhcMEKoXPRrYShfc51uUpgggWiR_K-aB9Ht5gufa8I',
         }
     })
         .then(response => {
@@ -143,7 +143,7 @@ const deleteCustomers = (id) => {
         if(willDelete){
             axios.delete('https://mitramas-test.herokuapp.com/customers', {
                 headers: {
-                    'Authorization': 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9taXRyYW1hcy10ZXN0Lmhlcm9rdWFwcC5jb21cL2F1dGhcL2xvZ2luIiwiaWF0IjoxNjU3MjIzMzU5LCJleHAiOjE2NTcyMjY5NTksIm5iZiI6MTY1NzIyMzM1OSwianRpIjoiY1Z3M1E0ZHFLVElTb2l1NyIsInN1YiI6MTU0LCJwcnYiOiIyM2JkNWM4OTQ5ZjYwMGFkYjM5ZTcwMWM0MDA4NzJkYjdhNTk3NmY3In0.8NcBV1_gFWXubkculWHuCq9wAeir4wwHvf4nTo7Rk4A',
+                    'Authorization': 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9taXRyYW1hcy10ZXN0Lmhlcm9rdWFwcC5jb21cL2F1dGhcL2xvZ2luIiwiaWF0IjoxNjU3MjUwNjQyLCJleHAiOjE2NTcyNTQyNDIsIm5iZiI6MTY1NzI1MDY0MiwianRpIjoiOVU2WEUyQ0ZHTDR2ZmgxdyIsInN1YiI6MTU0LCJwcnYiOiIyM2JkNWM4OTQ5ZjYwMGFkYjM5ZTcwMWM0MDA4NzJkYjdhNTk3NmY3In0.LwhcMEKoXPRrYShfc51uUpgggWiR_K-aB9Ht5gufa8I',
                 }
             })
             .then(response => {
