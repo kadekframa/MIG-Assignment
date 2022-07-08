@@ -1,11 +1,44 @@
 .dashboard-wrapper {
     padding: 20px;
-    box-shadow: 1px 1px 10px grey;
+    box-shadow: 1px 1px 10px rgb(216, 216, 216);
+    border-radius: 6px;
+}
+
+.dashboard-wrapper .jumlah-customer-wrapper .all-customer {
+    padding: 20px;
+    margin: 0 20px 40px;
+    box-shadow: 0px 1px 10px rgb(232, 232, 232);
+    border-radius: 8px;
+}
+
+.dashboard-wrapper .jumlah-customer-wrapper .all-customer h4 {
+    font-size: 23px;
+}
+
+.dashboard-wrapper .jumlah-customer-wrapper .all-customer .icon-wrapper {
+    display: flex;
+}
+
+.dashboard-wrapper .jumlah-customer-wrapper .users-icon {
+    font-size: 80px;
 }
 
 
 @media screen and (max-width: 767px) {
-    .dashboard-wrapper .jumlah-wrapper {
+    .dashboard-wrapper .jumlah-customer-wrapper {
         flex-direction: column;
+        margin-top: 2rem!important;
+    }
+
+    .dashboard-wrapper .jumlah-customer-wrapper .all-customer {
+        margin: 0 0px 24px;
+    }
+
+    .dashboard-wrapper .jumlah-customer-wrapper .all-customer h4 {
+        font-size: 20px;
+    }
+
+    .dashboard-wrapper .jumlah-customer-wrapper .users-icon {
+        font-size: 70px;
     }
 }
