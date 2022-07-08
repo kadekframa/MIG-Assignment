@@ -1,6 +1,6 @@
 import axios from 'axios';
 import swal from 'sweetalert';
-let token = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9taXRyYW1hcy10ZXN0Lmhlcm9rdWFwcC5jb21cL2F1dGhcL2xvZ2luIiwiaWF0IjoxNjU3MjY5NTk0LCJleHAiOjE2NTcyNzMxOTQsIm5iZiI6MTY1NzI2OTU5NCwianRpIjoiaEViakFvYWtlV0JuTkpobSIsInN1YiI6MTU0LCJwcnYiOiIyM2JkNWM4OTQ5ZjYwMGFkYjM5ZTcwMWM0MDA4NzJkYjdhNTk3NmY3In0.uJ0bnwqumGj6ptJwOhH7g8Z2pkw-pUpB05ThRK19bGU';
+let token = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9taXRyYW1hcy10ZXN0Lmhlcm9rdWFwcC5jb21cL2F1dGhcL2xvZ2luIiwiaWF0IjoxNjU3MjcyOTkwLCJleHAiOjE2NTcyNzY1OTAsIm5iZiI6MTY1NzI3Mjk5MCwianRpIjoiZkJ0NjZHME5yS0xYSEhUVyIsInN1YiI6MTU0LCJwcnYiOiIyM2JkNWM4OTQ5ZjYwMGFkYjM5ZTcwMWM0MDA4NzJkYjdhNTk3NmY3In0.5nUY2lj-rd4xmzcU2GpcWo-gc5vPXBLWYr25VNbo0tk';
 
 const getCustomers = async () => {
     const response = await axios.get('https://mitramas-test.herokuapp.com/customers', {
