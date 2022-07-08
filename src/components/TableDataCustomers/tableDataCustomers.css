@@ -1,0 +1,10 @@
+
+.body-table .status-active {
+    color: rgb(60, 156, 89);
+    font-weight: 600;
+}
+
+.body-table .status-inactive {
+    color: rgb(169, 75, 75);
+    font-weight: 600;
+}

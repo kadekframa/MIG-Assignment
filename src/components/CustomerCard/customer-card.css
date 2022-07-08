@@ -1,0 +1,90 @@
+.customer-card-wrapper {
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+    align-items: center;
+    margin: auto;
+    margin-bottom: 34px;
+    border-radius: 20px;
+    box-shadow: 0px 2px 20px rgb(196, 196, 196);
+}
+
+/* Customer Image css */
+.customer-card-wrapper .img-customer-wrapper {
+    display: flex;
+    flex-basis: 30% !important;
+    justify-content: center;
+    margin: 10px 0 0px;
+}
+
+.customer-card-wrapper .img-customer-wrapper .img-customer {
+    width: 46%;
+    border-radius: 200px;
+}
+
+
+/* Customer Name css */
+.customer-card-wrapper .customer-name {
+    display: flex;
+    width: 264px;
+    flex-basis: 30%;
+}
+
+.customer-card-wrapper .customer-name h5 {
+    text-align: center;
+    font-size: 16px;
+    color: rgb(57, 135, 73);
+    font-weight: 700;
+}
+
+.customer-card-wrapper .customer-name p {
+    font-size: 14px;
+    margin: 0;
+}
+
+.customer-card-wrapper .customer-name tr {
+    border-style: hidden;
+}
+
+.customer-card-wrapper .customer-name td {
+    font-size: 14px;
+    margin: 0;
+}
+
+.customer-card-wrapper .customer-name .status-active {
+    color: rgb(60, 156, 108);
+    font-weight: 600;
+}
+
+.customer-card-wrapper .customer-name .status-inactive {
+    color: rgb(169, 106, 75);
+    font-weight: 600;
+}
+
+
+/* customer Contact Link css */
+.customer-card-wrapper .customer-contact {
+    display: flex;
+    width: 60%;
+    justify-content: center;
+    margin: auto;
+    margin: 0 40px 20px;
+    flex-basis: 30%;
+}
+
+.customer-card-wrapper .customer-contact .blue-icon {
+    background-color: white !important;
+    color: rgb(86, 86, 86) !important;
+}
+
+.customer-card-wrapper .customer-contact .size-icon {
+    font-size: 24px !important;
+}
+
+.customer-card-wrapper .customer-contact a {
+    display: flex;
+    padding: 14px 24px;
+    justify-content: center;
+    margin: 0 4px;
+    text-decoration: none;
+}

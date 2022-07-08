@@ -1,0 +1,120 @@
+/* Home Wrapper */
+.home-wrapper {
+    font-family: 'Quicksand', sans-serif;
+}
+
+/* Hero jumbotro */
+
+
+/* Hero mig */
+.home-wrapper .hero-mig {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.home-wrapper .hero-mig p {
+    font-size: 16px;
+}
+
+
+/* Hero Information */
+
+.home-wrapper .hero-informasi {
+    margin-left: 194px;
+}
+
+.home-wrapper .hero-informasi .is-aktif-wrapper {
+    display: flex;
+    flex-direction: row;
+    margin: 0;
+    padding: 0;
+}
+
+.hero-informasi .is-aktif-wrapper .switch {
+    position: relative;
+    display: inline-block;
+    width: 40px;
+    height: 26px;
+    margin: 0 0px;
+  }
+  
+  .hero-informasi .is-aktif-wrapper .switch input { 
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+  
+  .hero-informasi .is-aktif-wrapper .slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    -webkit-transition: .4s;
+    transition: .4s;
+    width: 46px;
+  }
+  
+  .hero-informasi .is-aktif-wrapper .slider:before {
+    position: absolute;
+    content: "";
+    height: 18px;
+    width: 18px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    -webkit-transition: .4s;
+    transition: .4s;
+  }
+  
+  .hero-informasi .is-aktif-wrapper input:checked + .slider {
+    background-color: #5a9f68;
+  }
+  
+  .hero-informasi .is-aktif-wrapper input:focus + .slider {
+    box-shadow: 0 0 1px #5a9f68;
+  }
+  
+  .hero-informasi .is-aktif-wrapper input:checked + .slider:before {
+    -webkit-transform: translateX(20px);
+    -ms-transform: translateX(20px);
+    transform: translateX(20px);
+  }
+  
+  /* Rounded sliders */
+  .hero-informasi .is-aktif-wrapper .slider.round {
+    border-radius: 34px;
+  }
+  
+  .hero-informasi .is-aktif-wrapper .slider.round:before {
+    border-radius: 50%;
+  }
+
+
+
+.home-wrapper .hero-informasi a {
+    color: #5a9f68;
+}
+
+.home-wrapper .hero-informasi .text-muted {
+    font-size: 16px;
+}
+
+.home-wrapper .hero-informasi .text-value {
+    font-size: 19px;
+}
+
+
+@media screen and (max-width: 767px) {
+    .home-wrapper .hero-informasi {
+        flex-direction: column;
+        margin-left: 0px;
+    }
+
+    .home-wrapper .hero-informasi .col-5 {
+        width: 100%;
+    }
+}
