@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, {useState} from 'react';
 import { useParams } from 'react-router-dom';
 import {Form, FormGroup, Label, Input, Button} from 'reactstrap';
 import {updateCustomers} from '../../utils/CustomerHandler';
@@ -17,13 +17,13 @@ const UpdateCustomer = () => {
 
   const onSubmit = () => {
     // console.info('id: ', test);
-    console.info('id: ', id);
-    console.info('name: ', customerName);
-    console.info('Job: ', customerJob);
-    console.info('Address: ', customerAddress);
-    console.info('Country: ', customerCountry);
-    console.info('Number: ', customerNumber);
-    console.info('Status: ', customerStatus);
+    // console.info('id: ', id);
+    // console.info('name: ', customerName);
+    // console.info('Job: ', customerJob);
+    // console.info('Address: ', customerAddress);
+    // console.info('Country: ', customerCountry);
+    // console.info('Number: ', customerNumber);
+    // console.info('Status: ', customerStatus);
 
     const customer = {
       customerName,

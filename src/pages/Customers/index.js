@@ -7,6 +7,7 @@ import './customers.css'
 
 const Customers = () => {
   const [customer, setCustomer] = useState([]);
+  const [searchCustomer, setSearchCustomer] = useState('');
   const [isToken, setIsToken] = useState();
 
   useEffect (() => {
@@ -23,7 +24,11 @@ const Customers = () => {
         <h1>List Customers</h1>
         <div className='col row my-4 mb-5'>
             <div className='col-8 d-flex'>
-                <Input className='py-2' />
+                <Input className='py-2'
+                  type='text'
+                  placeholder='Search Customer...'
+                  onChange={event => setSearchCustomer(event.target.value)}
+                />
                 <Button className='btn btn-primary ms-2 py-2'>Search</Button>
             </div>
             <div className='col-4 d-flex justify-content-end'>
@@ -33,7 +38,13 @@ const Customers = () => {
       </div>
       {isToken === true ? (
         <div class="row">
-        {customer.map(customer => {
+        {customer.filter(value => {
+          if(searchCustomer === "") {
+            return value;
+          } else if (value.name.toLowerCase().includes(searchCustomer.toLocaleLowerCase())) {
+            return value;
+          }
+        }).map(customer => {
           return (
             <div class="col-xxl-3 col-xl-4 col-sm-6  d-flex mb-auto">
               <CustomerCard

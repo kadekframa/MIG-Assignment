@@ -1,0 +1,11 @@
+.dashboard-wrapper {
+    padding: 20px;
+    box-shadow: 1px 1px 10px grey;
+}
+
+
+@media screen and (max-width: 767px) {
+    .dashboard-wrapper .jumlah-wrapper {
+        flex-direction: column;
+    }
+}

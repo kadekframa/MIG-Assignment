@@ -1,13 +1,13 @@
 import axios from 'axios';
 import swal from 'sweetalert';
+let token = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9taXRyYW1hcy10ZXN0Lmhlcm9rdWFwcC5jb21cL2F1dGhcL2xvZ2luIiwiaWF0IjoxNjU3MjY5NTk0LCJleHAiOjE2NTcyNzMxOTQsIm5iZiI6MTY1NzI2OTU5NCwianRpIjoiaEViakFvYWtlV0JuTkpobSIsInN1YiI6MTU0LCJwcnYiOiIyM2JkNWM4OTQ5ZjYwMGFkYjM5ZTcwMWM0MDA4NzJkYjdhNTk3NmY3In0.uJ0bnwqumGj6ptJwOhH7g8Z2pkw-pUpB05ThRK19bGU';
 
 const getCustomers = async () => {
     const response = await axios.get('https://mitramas-test.herokuapp.com/customers', {
       headers: {
-        'Authorization': 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9taXRyYW1hcy10ZXN0Lmhlcm9rdWFwcC5jb21cL2F1dGhcL2xvZ2luIiwiaWF0IjoxNjU3MjUwNjQyLCJleHAiOjE2NTcyNTQyNDIsIm5iZiI6MTY1NzI1MDY0MiwianRpIjoiOVU2WEUyQ0ZHTDR2ZmgxdyIsInN1YiI6MTU0LCJwcnYiOiIyM2JkNWM4OTQ5ZjYwMGFkYjM5ZTcwMWM0MDA4NzJkYjdhNTk3NmY3In0.LwhcMEKoXPRrYShfc51uUpgggWiR_K-aB9Ht5gufa8I',
+        'Authorization': `${token}`,
       }
     });
-
     return response.data;
 }
 
@@ -30,7 +30,7 @@ const createCustomers = (dataCustomer) => {
         formData.append('status', customerStatus);
     axios.post('https://mitramas-test.herokuapp.com/customers', formData, {
         headers: {
-            'Authorization': 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9taXRyYW1hcy10ZXN0Lmhlcm9rdWFwcC5jb21cL2F1dGhcL2xvZ2luIiwiaWF0IjoxNjU3MjUwNjQyLCJleHAiOjE2NTcyNTQyNDIsIm5iZiI6MTY1NzI1MDY0MiwianRpIjoiOVU2WEUyQ0ZHTDR2ZmgxdyIsInN1YiI6MTU0LCJwcnYiOiIyM2JkNWM4OTQ5ZjYwMGFkYjM5ZTcwMWM0MDA4NzJkYjdhNTk3NmY3In0.LwhcMEKoXPRrYShfc51uUpgggWiR_K-aB9Ht5gufa8I',
+            'Authorization': `${token}`,
         }
     })
         .then(response => {
@@ -88,78 +88,119 @@ const updateCustomers = (dataCustomer, id) => {
         customerStatus,
     } = dataCustomer;
 
-    const data = new FormData();
-    data.append('id', id);
-    data.append('name', customerName);
-    data.append('address', customerAddress);
-    data.append('country', customerCountry);
-    data.append('phone_number', customerNumber);
-    data.append('job_title', customerJob);
-    data.append('status', customerStatus);
+    const data = {
+        id: id,
+        name: customerName,
+        address: customerAddress,
+        country: customerCountry,
+        phone_number: customerNumber,
+        job_title: customerJob,
+        status: customerStatus,
+    }
     
     checkUpdateForm(dataCustomer);
 
-    axios.put('https://mitramas-test.herokuapp.com/customers', data, {
+    fetch('https://mitramas-test.herokuapp.com/customers', {
+        method: 'PUT',
         headers: {
-            'Authorization': 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9taXRyYW1hcy10ZXN0Lmhlcm9rdWFwcC5jb21cL2F1dGhcL2xvZ2luIiwiaWF0IjoxNjU3MjUwNjQyLCJleHAiOjE2NTcyNTQyNDIsIm5iZiI6MTY1NzI1MDY0MiwianRpIjoiOVU2WEUyQ0ZHTDR2ZmgxdyIsInN1YiI6MTU0LCJwcnYiOiIyM2JkNWM4OTQ5ZjYwMGFkYjM5ZTcwMWM0MDA4NzJkYjdhNTk3NmY3In0.LwhcMEKoXPRrYShfc51uUpgggWiR_K-aB9Ht5gufa8I',
-        }
+            'Content-type': 'application/json',
+            'Authorization': `${token}`,
+        },
+        body: JSON.stringify(data),
     })
-        .then(response => {
-            if(response.status === 200) {
+        .then(response => response.json())
+        .then(responseJson => {
+            if(responseJson.success === true) {
                 swal({
-                    title: 'Data Customer Berhasil Diperbaharui!',
-                    text: `Selamat!`,
-                    icon: 'success',
-                    buttons: 'Ok'
+                    text: responseJson.message,
+                    icon : 'success',
+                    button: 'Ok',
                 })
                 .then(result => {
-                    window.location.href = '/customers';
+                    window.location.href = '/customers-data';
                 })
-                console.info('Berhasil Update Data!');
+
+                console.info('response: ', responseJson)
             }
-            
-            console.info('update response: ', response);
-        })
-        .catch(error => {
-            console.info('Error: ', error);
-            swal({
-                title: 'Gagal Mengupdate Data!',
-                text: 'Mohon pastikan semua form input sudah terisi!',
-                icon: 'error',
-                buttons: 'Ok'
-            })
         })
 }
 
 const deleteCustomers = (id) => {
+    const data = {
+        id: id,
+    }
+    
     swal({
         title: "Delete Customers?",
-        text: "Data customer akan dihapus permanen?",
+        text: "Data customer akan dihapus permanen",
         icon: "warning",
         buttons: ["Cancel", "Ok"],
         dangerMode: true,
     })
     .then(willDelete => {
         if(willDelete){
-            axios.delete('https://mitramas-test.herokuapp.com/customers', {
+            fetch('https://mitramas-test.herokuapp.com/customers', {
+                method: 'DELETE',
                 headers: {
-                    'Authorization': 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9taXRyYW1hcy10ZXN0Lmhlcm9rdWFwcC5jb21cL2F1dGhcL2xvZ2luIiwiaWF0IjoxNjU3MjUwNjQyLCJleHAiOjE2NTcyNTQyNDIsIm5iZiI6MTY1NzI1MDY0MiwianRpIjoiOVU2WEUyQ0ZHTDR2ZmgxdyIsInN1YiI6MTU0LCJwcnYiOiIyM2JkNWM4OTQ5ZjYwMGFkYjM5ZTcwMWM0MDA4NzJkYjdhNTk3NmY3In0.LwhcMEKoXPRrYShfc51uUpgggWiR_K-aB9Ht5gufa8I',
-                }
+                    'Content-type': 'application/json',
+                    'Authorization': `${token}`,
+                },
+                body: JSON.stringify(data)
+        
             })
-            .then(response => {
-                if(response.status === 200) {
-                  swal("Delete Success", {
-                    icon: "success",
-                  }).then(res => {
-                    window.location.href = `/customers`;
-                  })
-                }
-            })
-            .catch(err => {
-              console.log('Error: ', err);
-            })
+                .then(response => response.json())
+                .then(responseJson => {
+                    console.info(responseJson)
+                    if (responseJson.success === true) {
+                        swal({
+                            text: responseJson.message,
+                            icon: 'success',
+                        })
+                        .then(result => {
+                            window.location.href = '/customers-data';
+                        })
+                    }
+                })
         }
     })
+
+
+        
+    // const data = {
+    //     id: 3648,
+    // }
+
+    // swal({
+    //     title: "Delete Customers?",
+    //     text: "Data customer akan dihapus permanen?",
+    //     icon: "warning",
+    //     buttons: ["Cancel", "Ok"],
+    //     dangerMode: true,
+    // })
+    // .then(willDelete => {
+    //     if(willDelete){
+    //         axios('https://mitramas-test.herokuapp.com/customers', {
+    //             method: 'DELETE',
+    //             headers: {
+    //                 'Content-type': 'application/json',
+    //                 'Authorization': 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9taXRyYW1hcy10ZXN0Lmhlcm9rdWFwcC5jb21cL2F1dGhcL2xvZ2luIiwiaWF0IjoxNjU3MjU2NDQwLCJleHAiOjE2NTcyNjAwNDAsIm5iZiI6MTY1NzI1NjQ0MCwianRpIjoiWEZpS3ZwNHNCVHRESVUxbCIsInN1YiI6MTU0LCJwcnYiOiIyM2JkNWM4OTQ5ZjYwMGFkYjM5ZTcwMWM0MDA4NzJkYjdhNTk3NmY3In0.RdqezUvymNdOIacFfzRAQ9S75KZEfvsrFOv4N-K2vc8',
+    //             },
+    //             body: JSON.stringify(data)
+    //         })
+    //         .then(response => {
+    //             if(response.status === 200) {
+    //               swal("Delete Success", {
+    //                 icon: "success",
+    //               }).then(res => {
+    //                 window.location.href = `/customers`;
+    //               })
+    //             }
+    //         })
+    //         .catch(err => {
+    //           console.log('Error: ', err);
+    //         })
+    //     }
+    // })
 }
 
 export {

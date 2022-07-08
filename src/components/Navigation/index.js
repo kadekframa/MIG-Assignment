@@ -11,12 +11,18 @@ import {
   DropdownToggle,
   DropdownMenu,
   DropdownItem,
+  Button,
 } from 'reactstrap';
 import LogoMIG from '../../assets/images/logo.png';
+// import { loginUser } from '../../utils/CustomerHandler';
 import './navigation.css'
 
-const Navigation = (props) => {
+const Navigation = () => {
   const [isNavbarOpen, setNavbarOpen] = useState(false);
+
+  const activateToken = () => {
+    // loginUser();
+  }
   
   return (
     <header>

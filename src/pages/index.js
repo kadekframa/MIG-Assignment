@@ -1,4 +1,5 @@
 import Home from "./Home";
+import Dashboard from "./Dashboard";
 import Customers from "./Customers";
 import DataCustomers from "./DataCustomers";
 import CreateCustomer from "./CreateCustomer";
@@ -10,4 +11,5 @@ export {
     DataCustomers,
     CreateCustomer,
     UpdateCustomer,
+    Dashboard,
 };
